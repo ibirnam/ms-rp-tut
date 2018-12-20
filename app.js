@@ -17,7 +17,9 @@ app.listen(3000, () => {
 // OUR MOCK ARRAY OF PROJECTS
 let reviews = [
     { title: "Great Review", movieTitle: "Batman II" },
-    { title: "Awesome Movie", movieTitle: "Titanic" }
+    { title: "Awesome Movie", movieTitle: "Titanic" },
+    { title: "Move of the Year", movieTitle: "Undercover Brother" },
+    { title: "Terrible Movie", movieTitle: "Ninja Assassin" }
   ]
   
   // INDEX
