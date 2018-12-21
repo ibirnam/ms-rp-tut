@@ -2,11 +2,18 @@
 
 const mongoose = require('mongoose');
 
-const Review = mongoose.model('Review', {
-    title: String,
-    description: String,
-    movieTitle: String,
-    rating: Number
-});
+const reviewScheme = new mongoose.Schema(
+    {
+        title: String,
+        description: String,
+        movieTitle: String,
+        rating: Number
+    }, 
+    {
+        timestamps: true
+    }
+);
+
+const Review = mongoose.model('Review', reviewScheme);
 
 module.exports = Review;
