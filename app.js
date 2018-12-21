@@ -11,8 +11,8 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/rotten-potatoes');
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
 
 // INITIALIZE BODY-PARSER AND ADD IT TO APP
 const bodyParser = require('body-parser');
@@ -27,9 +27,8 @@ const reviews = require('./controllers/reviews')(app, Review);
 //     res.render('home', { msg: 'Handlebars are Cool!' });
 // })
 
-app.listen(3000, () => {
-    console.log('App listening on port 3000!')
-})
+const port = process.env.PORT || 3000;
+app.listen(port);
 
 module.exports = app;
 
