@@ -1,12 +1,18 @@
 <!-- reviews-index -->
 <h1>Reviews</h1>
 
-<a href="/reviews/new">New Review</a>
+{{!-- <a href="/reviews/new">New Review</a> --}}
 
-{{#each reviews}}
-  <h2><a href="/reviews/{{this._id}}">{{this.title}}</a></h2>
-  <small>{{this.movieTitle}}</small>
-{{/each}}
+<div class="row">
+    {{#each reviews}}
+        <div class="card">
+            <div class="col-md-3 card-body">
+                <h2 class="card-title"><a href="/reviews/{{this._id}}">{{this.title}}</a></h2>
+                <small class="card-text">{{this.movieTitle}}</small>
+            </div>
+        </div>
+    {{/each}}
+</div>
 
 {{!-- {{#each reviews}}
   <h2>{{this.title}}</h2>
