@@ -17,5 +17,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.4.0",
     "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }
