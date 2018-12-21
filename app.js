@@ -20,8 +20,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Require the models and controllers
-const Review = require('./models/review');
-const reviews = require('./controllers/reviews')(app, Review);
+const reviews = require('./controllers/reviews')(app);
 
 // app.get('/', (req, res) => {
 //     res.render('home', { msg: 'Handlebars are Cool!' });
