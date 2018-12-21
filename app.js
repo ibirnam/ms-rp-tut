@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Require the models and controllers
 const reviews = require('./controllers/reviews')(app);
+const comments = require('./controllers/comments')(app);
 
 // app.get('/', (req, res) => {
 //     res.render('home', { msg: 'Handlebars are Cool!' });
