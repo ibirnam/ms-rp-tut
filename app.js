@@ -24,10 +24,6 @@ const reviews = require('./controllers/reviews')(app);
 const comments = require('./controllers/comments')(app);
 const movies = require('./controllers/movies')(app);
 
-// app.get('/', (req, res) => {
-//     res.render('home', { msg: 'Handlebars are Cool!' });
-// })
-
 const port = process.env.PORT || 3000;
 app.listen(port);
 
