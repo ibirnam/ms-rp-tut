@@ -1,4 +1,5 @@
 // movies.js
+const Review = require('../models/review');
 
 module.exports = function (app) {
 
@@ -14,10 +15,13 @@ module.exports = function (app) {
     app.get('/movies/:id', (req, res) => {
         moviedb.movieInfo({ id: req.params.id }).then(movie => {
             moviedb.movieTrailers({ id: req.params.id }).then(videos => {
-                movie.trailer_youtube_id = videos.youtube[0].source
-                console.log('VIDEOS.TRAILER_YOUTUBE_ID', movie.trailer_youtube_id)
-
-                res.render('movies-show', { movie: movie });
+                movie.trailer_youtube_id = videos.youtube[0].source;
+                console.log('VIDEOS.TRAILER_YOUTUBE_ID', movie.trailer_youtube_id);
+                // FIND THIS MOVIE'S REVIEWS
+                Review.find({ movieId: req.params.id }).then(reviews => {
+                    // THEN RENDER THE MOVIES-SHOW TEMPLATE
+                    res.render('movies-show', { movie: movie, reviews: reviews });
+                }).catch(console.error);
             }).catch(console.error);
         }).catch(console.error);
     })

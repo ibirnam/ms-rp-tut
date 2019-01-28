@@ -7,7 +7,8 @@ const reviewScheme = new mongoose.Schema(
         title: String,
         description: String,
         movieTitle: String,
-        rating: Number
+        rating: Number,
+        movieId: { type: String, required: true }
     }, 
     {
         timestamps: true
