@@ -27,6 +27,7 @@ module.exports = function (app) {
         Review.findById(req.params.id).then(review => {
             // fetch its comments
             Comment.find({ reviewId: req.params.id }).then(comments => {
+                comments.reverse();
                 // respond with the template with both values
                 res.render('reviews-show', { review: review, comments: comments })
             })

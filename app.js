@@ -18,6 +18,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes
 const bodyParser = require('body-parser');
 // The following line must appear AFTER const app = express() and before your routes!
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(express.static('public'));
 
 // Require the models and controllers
 const reviews = require('./controllers/reviews')(app);
