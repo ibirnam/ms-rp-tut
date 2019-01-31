@@ -15,7 +15,7 @@ module.exports = (app) => {
     });
 
     // DELETE
-    app.delete('/movies/:movieId/reviews/:reviewId/comments/:id', function (req, res) {
+    app.delete('/movies/:movieId/reviews/:reviewId/comments/:id', (req, res) => {
         console.log("DELETE comment")
         Comment.findByIdAndRemove(req.params.id).then((comment) => {
             // res.redirect(`/movies/${req.params.movieId}/reviews/${comment.reviewId}`);
