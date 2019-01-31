@@ -1,10 +1,10 @@
-// controllers/admin.js
+// admin.js
 
 const Review = require('../models/review')
 
-module.exports = function (app) {
+module.exports = (app) => {
 
-    // NEW Comment
+    // INDEX
     app.get('/admin', (req, res) => {
         Review.find()
             .then(reviews => {
@@ -14,4 +14,14 @@ module.exports = function (app) {
                 console.log(error);
             });
     });
+
+    // DELETE
+    app.delete('/admin/reviews/:id', (req, res) => {
+        Review.findByIdAndRemove(req.params.id).then((review) => {
+            res.status(200).send(review);
+        }).catch((err) => {
+            console.log(err.message);
+            res.status(400).send(err)
+        })
+    })
 }
